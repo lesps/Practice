@@ -1,0 +1,54 @@
+package upenn.cis541.Stopwatch;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+public class StopwatchGUI extends JFrame implements ActionListener{
+	JPanel Panel;
+	JLabel Display;
+	JButton Start;
+	JButton Stop;
+	JButton Reset;
+	
+	public StopwatchGUI(){
+		Panel = new JPanel();
+		Display = new JLabel();
+		Start = new JButton("Start");
+		Start.addActionListener(this);
+		Stop = new JButton("Stop");
+		Stop.addActionListener(this);
+		Reset = new JButton("Reset");
+		
+		Panel.add(Display);
+		Panel.add(Start);
+		Panel.add(Stop);
+		Panel.add(Reset);
+		
+		this.add(Panel);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent event){
+		if(event.getSource() == Start){
+			Stopwatch.start();
+		} else if(event.getSource() == Stop){
+			Stopwatch.stop();
+		} else if(event.getSource() == Reset){
+			Stopwatch.reset();
+		}
+	}
+	
+	public void refresh(){
+		StringBuilder toDisplay = new StringBuilder();
+		toDisplay.append(Stopwatch.hours);
+		toDisplay.append(":");
+		toDisplay.append(Stopwatch.minutes);
+		toDisplay.append(":");
+		toDisplay.append(Stopwatch.seconds);
+		toDisplay.append(":");
+		toDisplay.append(Stopwatch.milliseconds);
+		Display.setText(toDisplay.toString());
+	}
+}

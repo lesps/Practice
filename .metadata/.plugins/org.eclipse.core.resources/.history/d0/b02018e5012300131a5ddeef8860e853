@@ -1,0 +1,7 @@
+package upenn.cis541.Stopwatch;
+
+import javax.swing.JFrame;
+
+public class StopwatchGUI extends JFrame {
+
+}

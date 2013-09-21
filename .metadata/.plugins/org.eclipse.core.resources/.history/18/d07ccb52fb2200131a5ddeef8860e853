@@ -1,0 +1,13 @@
+package upenn.cis541.Stopwatch;
+
+import java.util.TimerTask;
+
+public class Tick extends TimerTask {
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,16 @@
+package upenn.cis541.Stopwatch;
+
+import javax.swing.*;
+
+public class StopwatchGUI extends JFrame {
+	JPanel Panel;
+	JLabel Display;
+	JButton Start;
+	JButton Stop;
+	JButton Reset;
+	
+	StopwatchGUI(){
+		Panel = new JPanel();
+		Display = new JLabel();
+	}
+}

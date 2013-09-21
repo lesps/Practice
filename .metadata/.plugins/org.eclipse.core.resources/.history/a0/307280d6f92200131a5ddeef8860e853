@@ -1,0 +1,42 @@
+package upenn.cis541.Stopwatch;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class Stopwatch {
+	public static int milliseconds = 0;
+	public static int seconds = 0;
+	public static int minutes = 0;
+	public static int hours = 0;
+
+	public static void main(String args[]) {
+		
+	}
+	
+	public static void initTimer(){
+		
+	}
+
+	public class Tick extends TimerTask{
+		public void run(){
+			if(Stopwatch.hours >= 99) { //the max hours the stop watch can hold
+				shouldStop = true;
+			}
+			if(Stopwatch.milliseconds >= 99){
+				Stopwatch.seconds++;
+				Stopwatch.milliseconds = 0;
+			}
+			if(Stopwatch.seconds >= 59){
+				Stopwatch.minutes++;
+				Stopwatch.seconds = 0;
+			}
+			if(Stopwatch.minutes >= 59){
+				Stopwatch.hours++;
+				Stopwatch.minutes = 0;
+			}
+
+			Stopwatch.milliseconds++;
+		}
+	}
+}
+

@@ -1,0 +1,49 @@
+package upenn.cis541.Stopwatch;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+import javax.swing.JFrame;
+
+public class Stopwatch {
+	public static int hundredths = 0;
+	public static int seconds = 0;
+	public static int minutes = 0;
+	public static int hours = 0;
+	private static Timer clock;
+	private static StopwatchGUI gui;
+
+	public static void main(String args[]) {
+
+		gui = new StopwatchGUI();
+		gui.setTitle("Stopwatch - Spencer Lee (lesp)");
+		gui.setSize(300,200);
+		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		gui.setVisible(true);
+
+		Stopwatch.display();
+	}
+	
+	public static void start(){
+		clock = new Timer();
+		clock.scheduleAtFixedRate(new Tick(), 10, 10);
+	}
+	
+	public static void stop(){
+		clock.cancel();
+		clock = null;
+	}
+	
+	public static void reset(){
+		hours = 0;
+		minutes = 0;
+		seconds = 0;
+		hundredths = 0;
+		Stopwatch.display();
+	}
+	
+	public static void display(){
+		gui.refresh();
+	}
+	
+}

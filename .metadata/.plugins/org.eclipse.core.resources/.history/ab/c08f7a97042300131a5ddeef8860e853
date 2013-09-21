@@ -1,0 +1,38 @@
+package upenn.cis541.Stopwatch;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class Stopwatch {
+	public static int milliseconds = 0;
+	public static int seconds = 0;
+	public static int minutes = 0;
+	public static int hours = 0;
+	private static Timer clock;
+	private static StopwatchGUI gui;
+
+	public static void main(String args[]) {
+		
+	}
+	
+	public static void start(){
+		clock = new Timer();
+		clock.scheduleAtFixedRate(new Tick(), 1, 1);
+	}
+	
+	public static void stop(){
+		clock.cancel();
+	}
+	
+	public static void reset(){
+		hours = 0;
+		minutes = 0;
+		seconds = 0;
+		milliseconds = 0;
+	}
+	
+	public static void display(){
+		
+	}
+	
+}
